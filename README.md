@@ -1,4 +1,4 @@
-# snacmate
+# SnacMate
 
 A new Flutter project.
 
