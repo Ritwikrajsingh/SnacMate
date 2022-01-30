@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "268312469896",
+    "project_id": "snacmate",
+    "storage_bucket": "snacmate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268312469896:android:dd1c203bc0f84c8cb65a3d",
+        "android_client_info": {
+          "package_name": "com.snacmate.snacmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268312469896-opoha5hf8kil6i29vpkjg9ehqfkvpqpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqM1nwcpZ6h_Xv0TFCN6iRtLHqQVv9Um0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268312469896-opoha5hf8kil6i29vpkjg9ehqfkvpqpb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "268312469896-igf2nj5ttu5u8dicv2617tdlucks1vm8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.snackmate.main"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
