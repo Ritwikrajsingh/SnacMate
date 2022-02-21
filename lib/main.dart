@@ -3,8 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:snacmate/pages/signup/signup_home.dart';
+import 'package:snacmate/pages/user%20profile%20page/profile_page.dart';
 import 'package:snacmate/services/google_sign_in.dart';
 import 'package:snacmate/pages/home/home.dart';
+
+import "package:snacmate/pages/user profile page/profile_page.dart";
 
 
 Future main() async {
