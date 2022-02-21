@@ -2,12 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 //import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:snacmate/pages/signup/signup_home.dart';
-import 'package:snacmate/pages/user%20profile%20page/profile_page.dart';
 import 'package:snacmate/services/google_sign_in.dart';
 import 'package:snacmate/pages/home/home.dart';
 
-import "package:snacmate/pages/user profile page/profile_page.dart";
 
 
 Future main() async {
@@ -17,7 +14,7 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
-  static final String AppName = "SnacMate";
+  static const String AppName = "SnacMate";
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red,
           
         ),
-        home: AuthenticationWrapper(),
+        home: const AuthenticationWrapper(),
       ),
     );
   }
@@ -43,6 +40,6 @@ class AuthenticationWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePage();
+    return const HomePage();
   }
 }

@@ -11,9 +11,9 @@ class Splash_Text extends StatelessWidget {
           //crossAxisAlignment: CrossAxisAlignment.center,
           //mainAxisSize: MainAxisSize.max,
           children: [Container(
-              padding: EdgeInsets.all(152),
+              padding: const EdgeInsets.all(152),
             ),
-            Text(
+            const Text(
           "SnacMate Splash",
           style: TextStyle(
             color: Color(0x876c0200),

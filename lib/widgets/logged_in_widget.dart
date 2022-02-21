@@ -12,11 +12,11 @@ class LoggedInWidget extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Logged In"),
+        title: const Text("Logged In"),
         centerTitle: true,
         actions: [
           TextButton(
-            child: Text("Logout", style: TextStyle(color: Colors.white),),
+            child: const Text("Logout", style: TextStyle(color: Colors.white),),
             onPressed: () {
               final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.logout();
@@ -30,7 +30,7 @@ class LoggedInWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
             "Profile",
             style:  TextStyle(fontSize: 24),
           ),

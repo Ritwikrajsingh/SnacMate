@@ -13,7 +13,7 @@ class SignupButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width*0.84,
         height: MediaQuery.of(context).size.height*0.063,
         child: ClipRRect(

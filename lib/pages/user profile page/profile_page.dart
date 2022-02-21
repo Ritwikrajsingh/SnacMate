@@ -13,16 +13,16 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = userPreferences.myUser;
+    const user = userPreferences.myUser;
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: BackButton(color: Colors.black,),
+        leading: const BackButton(color: Colors.black,),
       ),
       body: ListView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         children: [
           ProfileWidget(
             imagePath: user.imagePath,
@@ -39,11 +39,11 @@ class _ProfilePageState extends State<ProfilePage> {
     children: [
       Text(
         user.name,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
         const SizedBox(height: 4,),
         Text(user.email,
-        style: TextStyle(color: Colors.grey),)
+        style: const TextStyle(color: Colors.grey),)
     ],
   );
 }
