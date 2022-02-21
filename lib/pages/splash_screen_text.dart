@@ -1,7 +1,9 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class Splash_Text extends StatelessWidget {
-
+  const Splash_Text({ Key? key }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

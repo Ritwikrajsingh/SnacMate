@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleSignInProvider extends ChangeNotifier {
@@ -25,7 +25,9 @@ class GoogleSignInProvider extends ChangeNotifier {
 
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
     
     notifyListeners();

@@ -10,11 +10,12 @@ import 'package:snacmate/pages/home/home.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp( MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static const String AppName = "SnacMate";
+  const MyApp({ Key? key }) : super(key: key);
+  static const String appName = "SnacMate";
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
