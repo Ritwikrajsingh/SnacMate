@@ -21,8 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.transparent,
         leading: const BackButton(color: Colors.black,),
       ),
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
+      body: Column(
         children: [
           ProfileWidget(
             imagePath: user.imagePath,
