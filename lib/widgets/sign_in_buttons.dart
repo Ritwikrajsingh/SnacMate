@@ -30,6 +30,8 @@ class _SignupButtonState extends State<SignupButton> {
             child: TextButton(
               style: TextButton.styleFrom(backgroundColor: Colors.white),
               onPressed: (){
+                print(widget.method);
+                return;
                 final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.googleLogin();
               },
@@ -73,7 +75,7 @@ class facebookSignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignupButton(
-      icon: Icon(FontAwesomeIcons.facebook, color: Colors.blue,),
+      icon: Icon(FontAwesomeIcons.facebook, color: Colors.red,),
       method: "FACEBOOK",
     );
   }
@@ -85,7 +87,7 @@ class phoneSignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SignupButton(
-      icon: Icon(FontAwesomeIcons.phoneAlt, color: Colors.blue,),
+      icon: Icon(FontAwesomeIcons.phoneAlt, color: Colors.red,),
       method: "YOUR PHONE",
     );
   }

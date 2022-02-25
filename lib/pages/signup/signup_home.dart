@@ -30,6 +30,7 @@ class _signupHomepageState extends State<signupHomepage> {
         child: Column(
           children: [
             Spacer(),
+            Spacer(),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 66),
               child: const Center(
@@ -44,7 +45,7 @@ class _signupHomepageState extends State<signupHomepage> {
             )
             ),
             Spacer(),
-            Spacer(),
+            //Spacer(),
             const SigninWidgetsGroup()
 
           ],
