@@ -10,7 +10,7 @@ class SignupButton extends StatefulWidget {
   final Icon icon;
   final String method;
 
-  const SignupButton({ Key? key, icon, method }) : this.icon = icon, this.method = method, super(key: key);
+  const SignupButton({ Key? key, required this.icon, required this.method }) : super(key: key);
 
   @override
   State<SignupButton> createState() => _SignupButtonState();
@@ -30,8 +30,8 @@ class _SignupButtonState extends State<SignupButton> {
             child: TextButton(
               style: TextButton.styleFrom(backgroundColor: Colors.white),
               onPressed: (){
-                print(widget.method);
-                return;
+                //print(widget.method);
+                //return;
                 final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.googleLogin();
               },
@@ -57,8 +57,8 @@ class _SignupButtonState extends State<SignupButton> {
   }
 }
 
-class googleSignupButton extends StatelessWidget {
-  const googleSignupButton({ Key? key }) : super(key: key);
+class GoogleSignupButton extends StatelessWidget {
+  const GoogleSignupButton({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +69,8 @@ class googleSignupButton extends StatelessWidget {
   }
 }
 
-class facebookSignupButton extends StatelessWidget {
-  const facebookSignupButton({ Key? key }) : super(key: key);
+class FacebookSignupButton extends StatelessWidget {
+  const FacebookSignupButton({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +81,8 @@ class facebookSignupButton extends StatelessWidget {
   }
 }
 
-class phoneSignupButton extends StatelessWidget {
-  const phoneSignupButton({ Key? key }) : super(key: key);
+class PhoneSignupButton extends StatelessWidget {
+  const PhoneSignupButton({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

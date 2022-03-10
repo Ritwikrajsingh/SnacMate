@@ -2,10 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+enum CardStatus { like, dislike, superLike }
 
-enum CardStatus{like, dislike, superLike}
-
-class CardProvider extends ChangeNotifier{
+class CardProvider extends ChangeNotifier {
   bool _isDragging = false;
   Offset _position = Offset.zero;
   Size _screenSize = Size.zero;
@@ -15,18 +14,19 @@ class CardProvider extends ChangeNotifier{
   bool get isDragging => _isDragging;
   Offset get position => _position;
   double get angle => _angle;
+  int u = 8;
 
   CardProvider() {
     getUsers();
   }
 
-  void setScreenSize(Size screenSize) => _screenSize =  screenSize;
+  void setScreenSize(Size screenSize) => _screenSize = screenSize;
 
-  void startPosition(DragStartDetails details){
+  void startPosition(DragStartDetails details) {
     _isDragging = true;
     notifyListeners();
-
   }
+
   void updatePosition(DragUpdateDetails details) {
     _position += details.delta;
 
@@ -35,22 +35,20 @@ class CardProvider extends ChangeNotifier{
 
     notifyListeners();
   }
-  void endPosition(){
+
+  void endPosition() {
     _isDragging = false;
     notifyListeners();
 
     final status = getStatus();
-    
 
     if (status != null) {
       Fluttertoast.cancel();
       Fluttertoast.showToast(
-        msg: status.toString().split(".").last.toUpperCase(),
-        fontSize: 10
-      );
+          msg: status.toString().split(".").last.toUpperCase(), fontSize: 10);
     }
 
-    switch (status){
+    switch (status) {
       case CardStatus.like:
         like();
         break;
@@ -65,7 +63,7 @@ class CardProvider extends ChangeNotifier{
     }
   }
 
-  void like(){
+  void like() {
     _angle = 20;
     _position += Offset(2 * _screenSize.width, 0);
     _nextCard();
@@ -73,7 +71,7 @@ class CardProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-   void dislike(){
+  void dislike() {
     _angle = 20;
     _position -= Offset(2 * _screenSize.width, 0);
     _nextCard();
@@ -81,7 +79,7 @@ class CardProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-   void superLike(){
+  void superLike() {
     _angle = 0;
     _position -= Offset(0, _screenSize.height);
     _nextCard();
@@ -89,15 +87,22 @@ class CardProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future _nextCard() async {
-    if (_userList.isEmpty) return;
+  // Future _nextCard() async {
+  //   if (_userList.isEmpty) return;
 
+  //   await Future.delayed(const Duration(milliseconds: 200));
+  //   _userList.removeLast();
+  //   resetPosition();
+  // }
+
+  Future _nextCard() async {
+    if (u <= 0) return;
     await Future.delayed(const Duration(milliseconds: 200));
-    _userList.removeLast();
+    u -= 1;
     resetPosition();
   }
 
-  void resetPosition(){
+  void resetPosition() {
     _isDragging = false;
     _position = Offset.zero;
     _angle = 0;
@@ -105,23 +110,24 @@ class CardProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  CardStatus? getStatus(){
+  CardStatus? getStatus() {
     final x = _position.dx;
     final y = _position.dy;
     final forceSuperLike = x.abs() < 20;
 
     const delta = 100;
 
-    if (x >= delta){
+    if (x >= delta) {
       return CardStatus.like;
-    }else if (x <= -delta){
+    } else if (x <= -delta) {
       return CardStatus.dislike;
-    }else if (y <= -delta/2 && forceSuperLike){
+    } else if (y <= -delta / 2 && forceSuperLike) {
       return CardStatus.superLike;
     }
   }
 
-  void getUsers(){
-    _userList = List<User>.filled(5, FirebaseAuth.instance.currentUser!, growable: true);
+  void getUsers() {
+    _userList = List<User>.filled(5, FirebaseAuth.instance.currentUser!,
+        growable: true);
   }
 }
